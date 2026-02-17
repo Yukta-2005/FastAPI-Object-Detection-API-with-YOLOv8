@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  object-detection-api:
+    build: .
+    container_name: object-detection-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./annotated:/app/annotated   # persist annotated images
+    environment:
+      - MODEL_NAME=yolov8n           # default model (can override)
